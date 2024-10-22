@@ -1,25 +1,25 @@
 package ass4.State;
 class Player {
-    private PlayerState state;
+    private PlayerState currentState;
 
     public Player() {
-        // Изначально плеер в состоянии остановки
-        this.state = new StoppedState();
+        // Изначально плеер находится в состоянии остановки
+        currentState = new StoppedState();
     }
 
     public void setState(PlayerState state) {
-        this.state = state;
+        this.currentState = state;
     }
 
     public void play() {
-        state.play(this);
+        currentState.play(this);
     }
 
     public void pause() {
-        state.pause(this);
+        currentState.pause(this);
     }
 
     public void stop() {
-        state.stop(this);
+        currentState.stop(this);
     }
 }

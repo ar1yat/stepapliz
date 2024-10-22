@@ -2,12 +2,12 @@ package ass4.State;
 class PlayingState implements PlayerState {
     @Override
     public void play(Player player) {
-        System.out.println("Плеер уже воспроизводит трек.");
+        System.out.println("Плеер уже воспроизводит музыку.");
     }
 
     @Override
     public void pause(Player player) {
-        System.out.println("Плеер ставится на паузу.");
+        System.out.println("Плеер поставлен на паузу.");
         player.setState(new PausedState());
     }
 
@@ -17,3 +17,4 @@ class PlayingState implements PlayerState {
         player.setState(new StoppedState());
     }
 }
+

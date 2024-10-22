@@ -1,14 +1,37 @@
 package ass4.State;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Создаем плеер
-        Player player = new Player();
+        Player player = new Player();  // Создаем экземпляр плеера
+        Scanner scanner = new Scanner(System.in);
+        String command;
 
-        // Пытаемся воспроизвести трек
-        player.play();   // Запуск трека с начала
-        player.pause();  // Плеер ставится на паузу
-        player.play();   // Возобновляем воспроизведение
-        player.stop();   // Плеер остановлен
-        player.pause();  // Плеер уже остановлен, невозможно поставить на паузу
+        System.out.println("Добро пожаловать в мультимедийный плеер!");
+        System.out.println("Введите одну из команд: play, pause, stop, exit для выхода.");
+
+        // Бесконечный цикл для принятия команд от пользователя
+        while (true) {
+            System.out.print("Введите команду: ");
+            command = scanner.nextLine().trim().toLowerCase();
+
+            switch (command) {
+                case "play":
+                    player.play();
+                    break;
+                case "pause":
+                    player.pause();
+                    break;
+                case "stop":
+                    player.stop();
+                    break;
+                case "exit":
+                    System.out.println("Выход из программы.");
+                    return;
+                default:
+                    System.out.println("Неизвестная команда. Попробуйте снова.");
+            }
+        }
     }
 }
+

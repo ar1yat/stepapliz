@@ -2,7 +2,7 @@ package ass4.State;
 class PausedState implements PlayerState {
     @Override
     public void play(Player player) {
-        System.out.println("Возобновляем воспроизведение трека.");
+        System.out.println("Плеер возобновил воспроизведение.");
         player.setState(new PlayingState());
     }
 
@@ -17,3 +17,4 @@ class PausedState implements PlayerState {
         player.setState(new StoppedState());
     }
 }
+

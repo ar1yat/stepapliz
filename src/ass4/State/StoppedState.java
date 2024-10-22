@@ -2,13 +2,13 @@ package ass4.State;
 class StoppedState implements PlayerState {
     @Override
     public void play(Player player) {
-        System.out.println("Запуск трека с начала.");
+        System.out.println("Плеер начал воспроизведение с начала.");
         player.setState(new PlayingState());
     }
 
     @Override
     public void pause(Player player) {
-        System.out.println("Плеер уже остановлен, невозможно поставить на паузу.");
+        System.out.println("Нельзя поставить на паузу. Плеер остановлен.");
     }
 
     @Override
@@ -16,3 +16,4 @@ class StoppedState implements PlayerState {
         System.out.println("Плеер уже остановлен.");
     }
 }
+

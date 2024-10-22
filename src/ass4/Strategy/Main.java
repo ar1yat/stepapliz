@@ -1,20 +1,41 @@
 package ass4.Strategy;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Создаем заказ
+        // Создаём заказ
         Order order = new Order();
-        double orderAmount = 1000.0; // Исходная сумма заказа
+        Scanner scanner = new Scanner(System.in);
 
-        // Оплата картой
-        order.setPaymentStrategy(new CardPaymentStrategy());
-        System.out.println("Итоговая стоимость при оплате картой: " + order.calculateFinalAmount(orderAmount));
+        System.out.println("Введите стоимость заказа:");
+        double orderPrice = scanner.nextDouble();
 
-        // Оплата электронным кошельком
-        order.setPaymentStrategy(new WalletPaymentStrategy());
-        System.out.println("Итоговая стоимость при оплате электронным кошельком: " + order.calculateFinalAmount(orderAmount));
+        // Выбор стратегии оплаты
+        System.out.println("Выберите способ оплаты:");
+        System.out.println("1. Сіздерге банк карточкасымен төлеуге болады ма?(Қайрош Нұртас) (2% комиссия)");
+        System.out.println("2. Кивимен донат жасау (без комиссии)");
+        System.out.println("3. Сначала товар потом деньги (+3000 теңге мопедистке)");
 
-        // Наложенный платеж
-        order.setPaymentStrategy(new CashOnDeliveryStrategy());
-        System.out.println("Итоговая стоимость при наложенном платеже: " + order.calculateFinalAmount(orderAmount));
+        int choice = scanner.nextInt();
+
+        switch (choice) {
+            case 1:
+                order.setPaymentStrategy(new банккарточкасыментолеу());
+                break;
+            case 2:
+                order.setPaymentStrategy(new кивимендонатжасау());
+                break;
+            case 3:
+                order.setPaymentStrategy(new колмаколтолеу());
+                break;
+            default:
+                System.out.println("Неверный выбор способа оплаты.");
+                return;
+        }
+
+        // Рассчитываем итоговую стоимость
+        double finalPrice = order.calculateFinalPrice(orderPrice);
+        System.out.println("Итоговая стоимость заказа: " + finalPrice + " теңге");
     }
 }
+

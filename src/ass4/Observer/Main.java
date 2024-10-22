@@ -1,22 +1,40 @@
 package ass4.Observer;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Создаем издателя новостей
+        // Создаём издателя новостей
         NewsPublisherImpl newsPublisher = new NewsPublisherImpl();
 
-        // Создаем подписчиков
-        Observer smartphone = new NewsSubscriberSmartphone();
-        Observer laptop = new NewsSubscriberLaptop();
-        Observer tablet = new NewsSubscriberTablet();
+        // Создаём подписчиков
+        Observer smartphoneSubscriber = new NewsSubscriberSmartphone();
+        Observer laptopSubscriber = new NewsSubscriberLaptop();
+        Observer tabletSubscriber = new NewsSubscriberTablet();
 
-        // Добавляем подписчиков
-        newsPublisher.subscribe(smartphone);
-        newsPublisher.subscribe(laptop);
-        newsPublisher.subscribe(tablet);
+        // Подписываем подписчиков на новости
+        newsPublisher.subscribe(smartphoneSubscriber);
+        newsPublisher.subscribe(laptopSubscriber);
+        newsPublisher.subscribe(tabletSubscriber);
 
-        // Публикуем новости и проверяем уведомления
-        newsPublisher.publishNews("Sports", "Финал чемпионата мира по футболу!");
-        newsPublisher.publishNews("Science", "Открытие новой элементарной частицы!");
-        newsPublisher.publishNews("Politics", "Выборы президента завершены.");
+        // Вводим новости вручную
+        Scanner scanner = new Scanner(System.in);
+        String category, news;
+
+        while (true) {
+            System.out.println("\nВведите категорию новости (Спорт, Наука, Технологии) или 'exit' для выхода:");
+            category = scanner.nextLine().trim();
+
+            if (category.equalsIgnoreCase("exit")) {
+                break;
+            }
+
+            System.out.println("Введите текст новости:");
+            news = scanner.nextLine().trim();
+
+            // Публикуем новость
+            newsPublisher.publishNews(category, news);
+        }
+
+        System.out.println("Программа завершена.");
     }
 }
