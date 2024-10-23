@@ -1,5 +1,5 @@
 package ass4.Strategy;
-class Order {
+public class Order {
     private PaymentStrategy paymentStrategy;
 
     // Устанавливаем стратегию оплаты

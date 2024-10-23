@@ -1,5 +1,5 @@
 package ass4.State;
-class Player {
+public class Player {
     private PlayerState currentState;
 
     public Player() {

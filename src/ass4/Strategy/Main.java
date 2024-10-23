@@ -20,13 +20,13 @@ public class Main {
 
         switch (choice) {
             case 1:
-                order.setPaymentStrategy(new банккарточкасыментолеу());
+                order.setPaymentStrategy(new CardPaymentStrategy());
                 break;
             case 2:
-                order.setPaymentStrategy(new кивимендонатжасау());
+                order.setPaymentStrategy(new WalletPaymentStrategy());
                 break;
             case 3:
-                order.setPaymentStrategy(new колмаколтолеу());
+                order.setPaymentStrategy(new CashOnDeliveryStrategy());
                 break;
             default:
                 System.out.println("Неверный выбор способа оплаты.");

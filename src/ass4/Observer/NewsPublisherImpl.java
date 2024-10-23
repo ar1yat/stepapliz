@@ -2,7 +2,7 @@ package ass4.Observer;
 import java.util.ArrayList;
 import java.util.List;
 
-class NewsPublisherImpl implements NewsPublisher {
+public class NewsPublisherImpl implements NewsPublisher {
     private List<Observer> subscribers = new ArrayList<>();
 
     @Override

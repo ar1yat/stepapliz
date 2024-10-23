@@ -1,9 +1,9 @@
 package ass4.Observer;
-class NewsSubscriberLaptop implements Observer {
+public class NewsSubscriberLaptop implements Observer {
     @Override
     public void update(String category, String news) {
-        if (category.equals("Science")) {
-            System.out.println("Ноутбук получил новости по науке: " + news);
+        if (category.equals("Наука")) {
+            System.out.println("Уведомление на ноутбук: Новость из категории Наука - " + news);
         }
     }
 }
