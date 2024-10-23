@@ -1,8 +1,7 @@
 
 
-import ass4.Observer.*;
-import ass4.State.Player;
-import ass4.Strategy.Order;
+import assigment4.Observer.*;
+import assigment4.State.Player;
 
 
 import java.util.Scanner;
